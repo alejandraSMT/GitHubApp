@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var user: GitHubUser?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        TabView{
+            ProfileView()
+                .tabItem{
+                    Label("Profile", systemImage: "person.fill")
+                }
+            FollowersView()
+                .tabItem{
+                    Label("Followers",systemImage: "person.3.fill")
+                }
+        }.tint(.indigo)
     }
+
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
